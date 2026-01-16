@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Турниры - ChessLand</title>
+  <meta name="description" content="Анонсы детских шахматных турниров ChessLand. Регистрация и информация." />
+  <meta name="theme-color" content="#0fb9b1" />
+
+  <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="На главную">
+        <span class="brand__mark">
+          <img src="logo.png" alt="ChessLand" />
+        </span>
+        <span class="brand__text">
+          <span class="brand__name">ChessLand</span>
+          <span class="brand__tag">турниры и события</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Основная навигация">
+        <a class="nav__link" href="index.html">Главное</a>
+        <a class="nav__link is-active" href="tournaments.html">Турниры</a>
+      </nav>
+
+      <div class="header__cta">
+        <a class="btn btn--primary" href="https://t.me/David_Chursin" target="_blank" rel="noopener">Записаться</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="tournaments-head">
+          <div>
+            <h1 class="section__title">Турниры</h1>
+            <p class="section__lead">
+              Здесь публикую анонсы, правила и ссылку на регистрацию. Турниры - лучший способ познакомиться и попасть в группу.
+            </p>
+          </div>
+
+          <div class="tournaments-controls">
+            <label class="input">
+              <span class="input__label">Поиск</span>
+              <input id="q" type="search" placeholder="Например: блиц, 5-7, новичок" />
+            </label>
+
+            <label class="input">
+              <span class="input__label">Статус</span>
+              <select id="status">
+                <option value="all">Все</option>
+                <option value="upcoming">Предстоящие</option>
+                <option value="past">Прошедшие</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div id="tournamentsList" class="tournaments-list">
+          <div class="skeleton">Загружаю турниры...</div>
+        </div>
+
+        <div class="note">
+          Добавить турнир: открой файл <strong>tournaments.json</strong> и добавь запись.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mobile sticky CTA -->
+  <div class="mobile-cta" aria-label="Быстрая запись">
+    <div class="mobile-cta__inner">
+      <a class="btn btn--primary" href="https://t.me/David_Chursin" target="_blank" rel="noopener">Telegram</a>
+      <a class="btn btn--ghost" href="https://wa.me/79858842373" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn--ghost" href="tel:+79858842373">Позвонить</a>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
