@@ -4,11 +4,6 @@
 *::after { box-sizing: border-box; }
 
 html, body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-html, body {
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -434,7 +429,7 @@ padding-right: max(12px, env(safe-area-inset-right));
 .hero{padding: 24px 0 10px;}
 .hero__title{line-height: 1.12;}
 } /* чтобы контент не прятался за панелью */
-}
+
 
 @media (prefers-reduced-motion: reduce){
   *{scroll-behavior:auto !important;transition:none !important;animation:none !important}
