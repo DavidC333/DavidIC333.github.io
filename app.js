@@ -108,7 +108,7 @@
 
   async function load() {
     try {
-      const res = await fetch("tournaments.json", { cache: "no-store" });
+      const res = await fetch('data/tournaments.json'), { cache: "no-store" });
       if (!res.ok) throw new Error("Bad response");
       all = await res.json();
       applyFilters();
@@ -128,3 +128,4 @@
 
   load();
 })();
+
