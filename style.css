@@ -435,7 +435,8 @@ padding-right: max(12px, env(safe-area-inset-right));
   *{scroll-behavior:auto !important;transition:none !important;animation:none !important}
 }
 /* --- CTA form --- */
-.btn-lg{ padding: 14px 16px; border-radius: 18px; font-weight: 800; }
+.btn-lg{ padding: 12px 14px; }
+
 
 .leadform{
   margin-top: 14px;
