@@ -128,4 +128,57 @@
 
   load();
 })();
+// Lead form -> prepares message and opens messenger links
+(() => {
+  const form = document.getElementById('leadForm');
+  if (!form) return;
+
+  const status = document.getElementById('leadStatus');
+  const tgBtn = document.getElementById('leadTg');
+  const waBtn = document.getElementById('leadWa');
+
+  function findWaBase() {
+    const a = document.querySelector('a[href*="wa.me/"], a[href*="whatsapp.com/send"]');
+    if (!a) return '';
+    return a.href.split('?')[0];
+  }
+
+  function buildText() {
+    const name = (form.elements.name?.value || '').trim();
+    const age = (form.elements.age?.value || '').trim();
+    const phone = (form.elements.phone?.value || '').trim();
+
+    const lines = ['Здравствуйте! Хочу записать ребенка на занятия по шахматам.'];
+    if (name) lines.push(`Имя: ${name}`);
+    if (age) lines.push(`Возраст: ${age}`);
+    if (phone) lines.push(`Телефон: ${phone}`);
+    lines.push(`Страница: ${location.href}`);
+    return lines.join('\n');
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const text = buildText();
+    const shareTg = 'https://t.me/share/url?url=' + encodeURIComponent(location.href) + '&text=' + encodeURIComponent(text);
+
+    if (tgBtn) tgBtn.href = shareTg;
+
+    const waBase = findWaBase();
+    if (waBtn) {
+      waBtn.href = waBase ? (waBase + '?text=' + encodeURIComponent(text)) : ('https://wa.me/?text=' + encodeURIComponent(text));
+    }
+
+    try {
+      await navigator.clipboard.writeText(text);
+      if (status) status.textContent = 'Текст заявки скопирован. Нажмите Telegram или WhatsApp - и отправьте.';
+    } catch {
+      if (status) status.textContent = 'Нажмите Telegram или WhatsApp - и отправьте заявку.';
+    }
+
+    // Можно раскомментировать, если хочешь автопереход в Telegram после клика:
+    // window.open(shareTg, '_blank', 'noopener');
+  });
+})();
+
 
