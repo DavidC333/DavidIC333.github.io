@@ -525,4 +525,28 @@ padding-right: max(12px, env(safe-area-inset-right));
     border-radius: 14px;
   }
 }
+/* Mobile polish */
+@media (max-width: 640px){
+  .leadform{
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .leadform__field input{
+    height: 42px;
+    border-radius: 14px;
+  }
+
+  /* remove extra wide effects + keep inside screen */
+  .leadform, .leadform *{
+    max-width: 100%;
+  }
+
+  /* messenger buttons in one row */
+  .leadform__mess_tables{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+}
 
