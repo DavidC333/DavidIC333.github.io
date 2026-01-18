@@ -496,4 +496,32 @@ padding-right: max(12px, env(safe-area-inset-right));
   /* если где-то есть ряды "чипсов" - пусть переносится */
   .chips, .pill-row, .tags{ flex-wrap: wrap; max-width: 100%; }
 }
+/* Make lead form compact on desktop */
+@media (min-width: 900px){
+  .leadform{
+    max-width: 520px;
+    margin-top: 16px;
+    padding: 14px;
+  }
+
+  .leadform__grid{
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  /* phone stays full width, others side-by-side */
+  .leadform__field--full{ grid-column: 1 / -1; }
+
+  /* button not huge */
+  .leadform__submit{
+    padding: 12px 14px;
+    border-radius: 16px;
+  }
+
+  /* messenger buttons compact */
+  .leadform__mess_tables .btn{
+    padding: 10px 12px;
+    border-radius: 14px;
+  }
+}
 
